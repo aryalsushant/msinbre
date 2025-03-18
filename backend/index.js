@@ -1,25 +1,28 @@
-//import express
+// Import express
 import express from "express";
 
-//import cors
+// Import cors
 import cors from "cors";
 
-//import routes
+// Import routes
 import Router from "./routes/routes.js";
 
-//init express
+// Initialize express
 const app = express();
 
-//use express json
+// Use express json
 app.use(express.json());
 
-//use cors
+// Use cors
 app.use(cors());
 
-//use router
+// Use router
 app.use(Router);
 
-//PORT
-app.listen(5000, () => {
-  console.log("Server running successfully");
+// Define PORT dynamically (use 5001 if process.env.PORT is not set)
+const PORT = process.env.PORT || 5001;
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running successfully on port ${PORT}`);
 });
